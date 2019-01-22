@@ -1,8 +1,25 @@
 ﻿
 @{
-    ViewData["Title"] = "Contact";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Contact Us";
 }
-
-<h2>@ViewBag.Title</h2>
-
+<form action="/contact" method="post" class="popup-form">
+    <div>
+        <label>Username</label>
+        <input type="text" name="name" value="" />
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="email" name="email" value="" />
+    </div>
+    =<div>
+        <label>Subject</label><br />
+        <input type="text" name="subject" value="" /><br />
+    </div>
+     <div>
+         <label>Message</label><br />
+         <textarea rows="4" name="message"></textarea><br />
+     </div>
+    <div>
+        <input type="submit" value="Send Message" />
+    </div>
+</form>
