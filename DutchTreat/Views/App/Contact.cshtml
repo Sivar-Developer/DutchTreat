@@ -1,19 +1,19 @@
-﻿
+﻿@model ContactViewModel
 @{
     ViewBag.Title = "Contact Us";
 }
 <form action="/contact" method="post" class="popup-form">
     <div>
-        <label>Username</label>
-        <input type="text" name="name" value="" />
+        <label asp-for="Name">Your Name</label>
+        <input type="text" asp-for="Name" />
     </div>
     <div>
-        <label>Email</label>
-        <input type="email" name="email" value="" />
+        <label asp-for="Email">Email</label>
+        <input type="email" asp-for="Email" />
     </div>
     =<div>
-        <label>Subject</label><br />
-        <input type="text" name="subject" value="" /><br />
+        <label asp-for="Subject">Subject</label><br />
+        <input type="text" asp-for="Subject" /><br />
     </div>
      <div>
          <label>Message</label><br />
