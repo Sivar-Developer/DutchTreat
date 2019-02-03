@@ -19,6 +19,11 @@ namespace DutchTreat.Data
             _logger = logger;
         }
 
+        public void AddEntity(object model)
+        {
+            _ctx.Add(model);
+        }
+
         public object GetAllOrders()
         {
             return _ctx.Orders
@@ -50,7 +55,7 @@ namespace DutchTreat.Data
                .ThenInclude(i => i.Product)
                .Where(o => o.Id == id)
                .FirstOrDefault();
-            return _ctx.Orders.Find(id);
+            //return _ctx.Orders.Find(id);
         }
 
         public IEnumerable<Product> GetProductsByCategory(string category)
@@ -69,5 +74,6 @@ namespace DutchTreat.Data
         {
             throw new NotImplementedException();
         }
+
     }
 }

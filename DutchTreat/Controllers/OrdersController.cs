@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DutchTreat.Data;
+using DutchTreat.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace DutchTreat.Controllers
 {
+    [Route("api/[controller]")]
     public class OrdersController : Controller
     {
         private readonly IDutchRepository _repository;
@@ -47,7 +49,7 @@ namespace DutchTreat.Controllers
                 }
                 catch(Exception ex)
                 {
-
+                    return null;
                 }
                 //return Ok(_repository.GetOrderById(id));
             }
@@ -58,9 +60,23 @@ namespace DutchTreat.Controllers
             }
         }
 
-        public IActionResult Index()
+        [HttpPost]
+        public IActionResult Post([FromBody]Order model)
         {
-            return View();
+            try
+            {
+                _repository.AddEntity(model);
+                if (_repository.SaveAll())
+                {
+                    return Created($"/api/orders/{model.Id}", model);
+                }
+
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError($"Failed to save new order: {ex}");
+            }
+            return BadRequest("Failed to save new order");
         }
     }
 }
