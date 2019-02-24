@@ -11,6 +11,7 @@ namespace DutchTreat.Data
         Order GetOrderById(int id);
         void AddEntity(object model);
         bool SaveAll();
+        IEnumerable<Order> GetAllOrders();
         //bool SaveChanges();
     }
 }
