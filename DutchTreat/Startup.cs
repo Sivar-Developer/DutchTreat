@@ -80,7 +80,7 @@ namespace DutchTreat
                 using (var scope = app.ApplicationServices.CreateScope())
                 {
                     var seeder = scope.ServiceProvider.GetService<DutchSeeder>();
-                    seeder.Seed().Wait();
+                    seeder.Seed();
                 }
             }
         }
