@@ -1,9 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var StoreCustomer = /** @class */ (function () {
-    function StoreCustomer() {
+    function StoreCustomer(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.visits = 0;
+        //this.name = theName;
     }
     StoreCustomer.prototype.showName = function () {
-        alert(this.name);
+        alert(this.firstName + " " + this.lastName);
     };
     Object.defineProperty(StoreCustomer.prototype, "name", {
         get: function () {
@@ -17,6 +22,7 @@ var StoreCustomer = /** @class */ (function () {
     });
     return StoreCustomer;
 }());
-var cust = new StoreCustomer();
-cust.visits = 23;
+exports.StoreCustomer = StoreCustomer;
+//let cust = new StoreCustomer();
+//cust.visits = 23;
 //# sourceMappingURL=storecustomer.js.map

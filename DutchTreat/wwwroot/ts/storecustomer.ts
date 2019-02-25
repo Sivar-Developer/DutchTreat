@@ -21,5 +21,5 @@
 
 }
 
-let cust = new StoreCustomer();
-cust.visits = 23;
+//let cust = new StoreCustomer();
+//cust.visits = 23;
